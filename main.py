@@ -8,7 +8,7 @@ def check_time():
     print('對時中...')
     options = Options()
     options.add_argument("--headless")
-    driver = webdriver.Firefox(executable_path=r'geckodriver.exe', options=options)
+    driver = webdriver.Firefox(executable_path=r'firefox/geckodriver.exe', options=options)
     driver.get("https://1680380.com/view/jisusaiche/pk10kai.html")
     st = time.time()
     time.sleep(4)
@@ -59,8 +59,16 @@ def get_js(wait_time):
     return remain_time, li_list, issue
 
 def post_js(driver, road_num, bit_nums_list, bat_money):
-    driver.switch_to.frame(0)
-    #driver.switch_to.frame("frame")
+    driver.find_element_by_id("notClose1").click()
+    driver.find_element_by_id("notClose2").click()
+    driver.find_element_by_id("notClose3").click()
+    driver.find_element_by_id("notClose4").click()
+    driver.find_element_by_id("notClose5").click()
+    driver.find_element_by_id("notClose6").click()
+    driver.find_element_by_id("notClose7").click()
+    driver.find_element_by_xpath("//a[@id='l_PK10JSC']/span").click()
+    driver.find_element_by_xpath(u"(//a[contains(text(),'单号1 ~ 10')])[2]").click()
+    driver.switch_to.frame("frame")
     for bit in bit_nums_list:
         name="B" + str(road_num) + "_" + bit
         #print(name) #

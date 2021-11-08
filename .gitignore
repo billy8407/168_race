@@ -193,7 +193,7 @@ credential/
 .idea/
 
 # AI model
-model/
+models/
 checkpoint/
 
 # training images
